@@ -1,11 +1,11 @@
-//import React, { useState, useEffect, useRef } from 'react';
+import { Link } from "react-router-dom"
 import { CSSTransition } from 'react-transition-group'
 import Form from '../components/Form'
 import FormElement from '../components/FormElement'
 import {useState} from 'react'
 
-export default function LoginSignin() {
-    const [activeForm, setActiveForm] = useState('login');
+export default function LoginSignin(props) {
+    const [activeForm, setActiveForm] = useState(props.signin ? 'signin' :'login');
     const [formHeight, setFormHeight] = useState(null);
 
     function calcHeight(el) {
@@ -13,6 +13,8 @@ export default function LoginSignin() {
 
         setFormHeight(height)
     }
+
+    
 
     return (
         <div className="LoginSignin" >
@@ -29,7 +31,9 @@ export default function LoginSignin() {
                         <FormElement label='Password' type='password' name='password'></FormElement>
                         <div class="details">
                             <label><input type="checkbox" name="rememberMe" required/> Remember Me </label>
-                            <a>Forgot your password?</a>
+                            <Link to="/fp">
+                                <p>Forgot your password?</p>
+                            </Link>
                         </div>
                     </Form>
                 </CSSTransition>
@@ -41,7 +45,9 @@ export default function LoginSignin() {
                         <FormElement label='Password2' type='password' name='password2'></FormElement>
                         <div class="details">
                             <label><input type="checkbox" name="rememberMe" required/> Remember Me </label>
-                            <a>Forgot your password?</a>
+                            <Link to="/fp">
+                                <p>Forgot your password?</p>
+                            </Link>
                         </div>
                     </Form>
                 </CSSTransition>

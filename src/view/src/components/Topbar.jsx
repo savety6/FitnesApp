@@ -1,16 +1,41 @@
+import {DateRange} from '@material-ui/icons'
+import {DirectionsRun} from '@material-ui/icons'
+
 export default function Topbar(props) {
     
     if(props.log === true) {
+
+        let icon 
+        if(props.action ==='Add'){
+            icon = <div className="timepick">
+                        <DirectionsRun/>
+                        <p>biceps</p>
+                    </div>
+        }else{
+            icon = <div className="timepick">
+                        <DateRange/>
+                        <p>11/12/2021</p>
+                    </div>
+        }
+
         return (
             <div className="topbar">
                 <div className="pageTitle">
-                    <h2>Log</h2>
-                    <h3>New Workout</h3>
+                    <h2>{props.action}</h2>
+                    <h3>{props.title}</h3>
                 </div>
                 <div className="line"></div>
+                <p>{props.masage}</p>
+                {icon}
             </div>
         )
-    }else{
+    }
+    else if(props.profile === true){
+        <div className="topbar">
+            
+        </div>
+    }
+    else{
         return (
             <div className="topbar">
                 <div className="header">
